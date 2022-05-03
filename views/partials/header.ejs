@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <title>Yomu | นิยายแปล นิยายรายตอน เรื่องสั้น ออนไลน์</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Bootstrap Font Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <!-- Bootstrap JS Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+        <!-- rich text editer -->
+        <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
+        
+        <!-- Navbar link -->
+        <script src="//code.jquery.com/jquery.min.js"></script>
+
+        <!-- CSS -->
+        <!-- link css file nav -->
+        <link rel="stylesheet" href="../css/navbar.css">
+        <!-- link css file footer -->
+        <link rel="stylesheet" href="../css/footer.css">
+        <!-- link css novels-->
+        <link rel="stylesheet" href="../css/novels.css">
+        <!-- link css file nav for logined -->
+        <link rel="stylesheet" href="../css/nav-logined.css">
+        <!-- link css file nav for not login -->
+        <link rel="stylesheet" href="../css/nav-notlogin.css">
+        <!-- link css addwriting-->
+        <link rel="stylesheet" href="../css/addnovel.css">
+        <!-- link css write page-->
+        <link rel="stylesheet" href="../css/shownovel.css">
+        <!-- link css manage-write-->
+        <link rel="stylesheet" href="../css/writing.css">
+        <!-- link css index-->
+        <link rel="stylesheet" href="../css/chap-page.css">
+        <!-- link css addchapter-->
+        <link rel="stylesheet" href="../css/addchap.css">
+        <!-- link css search -->
+        <link rel="stylesheet" href="../css/search.css">
+        <!-- link css profile -->
+        <link rel="stylesheet" href="../css/profile.css">
+        <!-- link css swiper-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+        <!-- JS -->
+        <!-- link js swiper-->
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <!-- preview image -->
+        <script src="../js/previewimg.js"></script>
+        <!-- link js reply comment -->
+        <script src="../../js/comment.js"></script>
+        <!-- link js link row -->
+        <script src="../../js/linkrow.js"></script>
+        
+    </head>
+    <body>
+<%- include('../partials/navbar') %>
+
+<style>
+    .space {
+    margin: 50px 0;
+}
+
+/* banner */
+.swiper {
+    margin: 30px 0;
+}
+
+.imcenter {
+    display: flex;
+    justify-content: center;
+}
+
+.banim {
+    max-height: 330px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 5px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: hotpink;
+}
+
+/* แนะนำ นิยายมาใหม่ เรื่องสั้นมาใหม่ */
+.seemore {
+    text-decoration: none;
+    color: grey;
+    float: right;
+}
+
+.seemore:hover {
+    color: pink;
+}
+
+.novel {
+    display: inline-table;
+    width: 150px;
+    border: 1px solid pink;
+    border-radius: 5px;
+    margin: 0 14px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .lg {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .md {
+        display: none;
+    }
+}
+
+.novel a,
+.novel a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.cardimg {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.detail {
+    padding: 10px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.user {
+    color: grey;
+    font-size: small;
+}
+
+.categ {
+    font-size: small;
+}
+
+.detail span {
+    float: right;
+    font-size: small;
+    background-color: #ececec;
+    padding: 0 3px;
+    border-radius: 5px;
+}
+
+.see {
+    font-size: small;
+}
+
+/* tag */
+.tag span {
+    background-color: #ececec;
+    padding: 5px 8px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+/* top chart */
+.cha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cha span {
+    font-size: x-large;
+    font-weight: 700;
+    color: grey;
+}
+
+.top {
+    height: 40px;
+    object-fit: cover;
+}
+
+.imtop {
+    height: 100px;
+    border-radius: 10px;
+}
+
+.cat,
+.type {
+    color: grey;
+}
+
+/* โฆษณา */
+.ban,
+.ban:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+.body {
+    padding: 8px;
+}
+
+.Na {
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+
+.Us,
+.Ca,
+.Ty {
+    display: inline;
+}
+
+.sp {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* รายกายอัปเดต อ่านต่อ */
+.cadimg {
+    max-height: 200px;
+    border-radius: 5px;
+}
+
+.det {
+    padding: 0 8px;
+}
+
+.name-c {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.ob {
+    padding: 10px 0;
+    font-size: small;
+    color: grey;
+    height: 110px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .ob {
+        height: 80px;
+    }
+}
+
+.se,
+.lis,
+.fav {
+    display: inline;
+    font-size: small;
+    margin: 0 5px;
+}
+</style>

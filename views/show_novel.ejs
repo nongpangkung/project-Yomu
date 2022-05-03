@@ -1,0 +1,200 @@
+<%- include('partials/header') %>
+    <!-- เส้นทาง -->
+    <div class="container">
+        <a href="../index.html" class="bi bi-house-fill direc"> ></a>
+        <a href="../index-category.html" class="direc">ประเภท ๐ <%= novel.category%> ></a>
+        <span>
+            <%= novel.title %>
+        </span>
+    </div>
+    <br>
+    <!-- รายละเอียด -->
+    <div class="container w-75 ">
+        <div class="row g-0">
+            <div class="col-5 covim">
+                <img src="<%= novel.image %>" class="cov" alt="">
+            </div>
+            <div class="col">
+                <div class="de">
+                    <div class="name">
+                        <%= novel.title %>
+                    </div>
+                    <div class="writer">
+                        <img src="../../img/test3.jpg" class="writerim" alt="">
+                        <span><%= novel.owner.name %></span>
+                    </div>
+                    <div class="ca">
+                        <a href="../index-category.html" class="cate">
+                            <%= novel.category %>
+                        </a>
+                        <span>120 ตอน</span>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="ob">
+                        <%= novel.description %>
+                    </div>
+                    <div>
+                        <div class="bi bi-heart-fill fav"> 154</div>
+                        <div class="bi bi-eye-fill se"> 29k</div>
+                        <div class="bi bi-chat-dots-fill com"> 146</div>
+                    </div>
+                    <% if(user && user.name === novel.owner.name) { %>
+                    <div class="butt">
+                        <a href="/novels/<%= novel._id %>/edit"><button class="bi bi-pencil-square start"> EDIT</button></a>
+                    </div>
+                    <div class="butt">
+                        <form action="/novels/<%= novel._id %>?_method=DELETE" method="POST"><button class="bi bi-trash start"> DELETE</button></form>
+                    </div>
+                    <% } else { %>
+                    <div class="butt">
+                        <button class="bi bi-heart heart" ></button>
+                        <button class="bi bi-plus-lg add"> ชั้นหนังสือ</button>
+                        <button class="bi bi-eye-fill start"> เริ่มอ่าน</button>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- แนะนำเรื่อง -->
+    <div class="container w-75">
+        <h4>แนะนำเรื่อง</h4>
+        <hr>
+        <div class="text">
+            <%- novel.intro %>
+        </div>
+    </div>
+    <br>
+    <!-- tag -->
+    <div class="container w-75">
+        <h4>แท็ก</h4>
+        <hr>
+        <div class="tag">
+            <span>
+                <%= novel.tag %>
+            </span>
+        </div>
+    </div>
+    <br>
+    <!-- ตอน -->
+    <div class="container w-75">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <h4>ตอนทั้งหมด(3)</h4> 
+                </tr>
+                <a href="/novels/<%= novel._id %>/addchapter"><button class="bi bi-pencil-square start"> เพิ่มตอน</button></a>
+            </thead>
+            <hr>
+            <% chapters.forEach((chapter) => { %>
+                <div class="row kob">
+            <div class="col-2">
+                <div>
+                    <a href="/novels/<%= novel._id %>/<%= chapter._id %>" style="text-decoration: none; color: #000;"><%= chapter.number %> | <%= chapter.title %></a>
+                </div>
+                <div>
+                    <%= chapter.date.toISOString().split('T')[0] %> 
+                </div>
+                <div><a class="btn btn-sm btn-success w-100 p-0" href="/novels/<%= novel._id %>/<%= chapter._id %>/edit" >Edit</a></div>
+            </div>
+            </div>
+            <% }) %>
+        </table>
+    </div>
+    
+    <br>
+    <!-- เผยแพร่ ปุ่ม share -->
+    <div class="container w-50">
+        <div class="row">
+            <div class="col">
+                <h4>เผยแพร่</h4>
+                <hr>
+                <div>วันที่เผยแพร่ : <%= novel.date.toISOString().split('T')[0] %>
+                </div>
+                <div>วันที่แก้ไขล่าสุด : <%= novel.date === 'novel.date' ? 'novel.date' : novel.newdate.toISOString().split('T')[0] %>
+                </div>
+            </div>
+            <div class="col social">
+                <h4>โซเชียลมีเดีย</h4>
+                <hr>
+                <button class="bi bi-facebook fb"> แชร์</button>
+                <button class="bi bi-instagram ig"> แชร์</button>
+                <button class="bi bi-twitter tw"> แชร์</button>
+                <button class="bi bi-share-fill sh"> แชร์</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- เรื่องแนะนำ -->
+    <div class="container w-75">
+        <h4>เรื่องที่คุณอาจสนใจ</h4>
+        <hr>
+        <!-- เรื่อง 1 -->
+        <div class="novel">
+            <a href="#">
+                <img src="<%= novel.image %>" class="cardimg" alt="">
+                <div class="detail">
+                    <%= novel.title %>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br>
+    <!-- add comment -->
+    <% if(user) { %>
+    <div class="container w-75">
+        <h4>เพิ่มความคิดเห็น</h4>
+        <hr>
+        <form action="/novels/<%= novel.id %>" method="POST">
+            <div class="row">
+                <div class="col-1 imuse">
+                    <img src="../../img/test6.jpg" class="myuser" alt="">
+                </div>
+                <div class="col addc">
+                    <textarea name="text" id="" rows="1" placeholder="แสดงความคิดเห็น"></textarea>
+                    <button type="submit" class="bi bi-arrow-right send"></button>
+                </div>
+            </div>
+            <input type="hidden" name="novelId" value="<%= novel.id %>">
+            <input type="hidden" name="chapterId" value="<%= novel.id %>">
+        </form>
+    </div>
+    <% } %>
+    <br>
+    <!-- comment -->
+    <div class="container w-75">
+        <h4>ความคิดเห็น</h4>
+        <hr>
+        <!-- comment 1 -->
+        <% comments.forEach((comment) => { %>
+            <div class="row kob">
+                <div class="col-1 usim">
+                    <img src="../../img/test3.jpg" class="myuser" alt="">
+                </div>
+                <div class="col-2">
+                    <div>
+                        <%= comment.owner.name %>
+                    </div>
+                    <div>
+                        <%= comment.date.toISOString().split('T')[0] %>
+                    </div>
+                </div>
+                <% if (user && user.name === comment.owner.name) { %>
+                <div class="col-1">
+                    <form class="w-75 my-1" action="/novels/<%= comments._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-danger w-100 p-0">Delete</button>
+                    </form>
+                </div>
+                <% } %>
+                <div class="col">
+                    <p>
+                        <%= comment.text %>
+                    </p>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    
+<%- include('partials/footer') %>

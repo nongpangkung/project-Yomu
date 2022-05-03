@@ -1,0 +1,1099 @@
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a id="name-brand" class="navbar-brand" href="/">Yomu</a>
+            <!-- menu ตอนย่อ -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link bi bi-justify" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            หมวดหมู่
+                        </a>
+                        <!-- dropdown link ไปหน้าหลักแต่ละหมวด -->
+                        <ul class="dropdown-menu cate" aria-labelledby="navbarDropdown">
+                            <li class="row">
+                                <a class="col drop-item" href="/novels/category/โรแมนติก">โรแมนติก</a>
+                                <a class="col drop-item" href="/novels/category/แฟนตาซี">แฟนตาซี</a>
+                                <a class="col drop-item" href="/novels/category/ดราม่า">ดราม่า</a>
+                                <a class="col drop-item" href="/novels/category/ผจญภัย">ผจญภัย</a>
+                            </li>
+                            <li class="row">
+                                <a class="col drop-item" href="/novels/category/Action">Action</a>
+                                <a class="col drop-item" href="/novels/category/LGBTQ+">LGBTQ+</a>
+                                <a class="col drop-item" href="/novels/category/ลึกลับ">ลึกลับ</a>
+                                <a class="col drop-item" href="/novels/category/สืบสวน">สืบสวน</a>
+                            </li>
+                            <li class="row">
+                                <a class="col drop-item" href="/novels/category/Comedy">Comedy</a>
+                                <a class="col drop-item" href="/novels/category/กีฬา">กีฬา</a>
+                                <a class="col drop-item" href="/novels/category/วรรณกรรม">วรรณกรรม</a>
+                                <a class="col drop-item" href="/novels/category/ย้อนยุค">ย้อนยุค</a>
+                            </li>
+                            <li class="row">
+                                <a class="col drop-item" href="/novels/category/ผู้ใหญ่">ผู้ใหญ่</a>
+                                <a class="col drop-item" href="/novels/category/สยองขวัญ">สยองขวัญ</a>
+                                <a class="col drop-item" href="/novels/category/Fanfiction">Fanfiction</a>
+                                <a class="col drop-item" href="/novels/category/Light-Novel">Light-Novel</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" action="/novels/search" method="GET">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="term" aria-label="Search">
+                        </form>
+                    </li>
+                </ul>
+                <% if(user) { %>
+                    <div class="d-flex">
+                        <div class="dropdown">
+                            <a class="username" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Username
+                                <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="/account">Profile</a></li>
+                                <li><a class="dropdown-item" href="../reading.html">Reading</a></li>
+                                <li><a class="dropdown-item" href="/novels/mynovels">Writing</a></li>
+                                <li><a class="dropdown-item" href="#">Setting</a></li>
+                                <hr>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <form class="d-flex">
+                        <a class="login" href="/login" role="button">เข้าสู่ระบบ</a>
+                    </form>
+                    <form class="d-flex">
+                        <a class="login" href="/register" role="button">สมัครสมาชิก</a>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- subnav -->
+    <div class="manunav">
+        <a class="manunav-item" href="#">นิยายแปล</a>
+        <a class="manunav-item" href="#">นิยายรายตอน</a>
+        <a class="manunav-item" href="#">เรื่องสั้น</a>
+    </div>
+</head>
+
+
+<!-- link css index-->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- link css swiper-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <!-- link js swiper-->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- link js banner-->
+    <script src="../js/banner.js" type="module"></script>
+<br>
+    <!-- banner -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- หน้า 1-->
+            <div class="swiper-slide imcenter">
+                <img src="../img/ban1.jpeg" class="banim" alt="">
+                <img src="../img/ban2.jpeg" class="banim" alt="">
+            </div>
+            <!-- หน้า 2-->
+            <div class="swiper-slide imcenter">
+                <img src="../img/ban3.jpeg" class="banim" alt="">
+                <img src="../img/ban4.jpeg" class="banim" alt="">
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <br>
+<!-- แนะนำ -->
+<div class="container w-75">
+    <h4>เรื่องที่คุณอาจสนใจ</h4>
+    <hr>
+    <!-- เรื่อง 1 -->
+    <div class="novel">
+        <a href="writing/write-page.html">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 2 -->
+    <div class="novel">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 3 -->
+    <div class="novel">
+        <a href="#">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 4 -->
+    <div class="novel md">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 5 -->
+    <div class="novel lg">
+        <a href="#">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 6 -->
+    <div class="novel lg">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<br>
+<!-- อ่านต่อ -->
+<div class="container w-75">
+    <h4>อ่านต่อ</h4>
+    <hr>
+    <div class="row row-cols-1 row-cols-2">
+        <!-- เรื่อง 1 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
+                </div>
+                <div class="col-8">
+                    <div class="det">
+                        <div class="name-c">ชื่อเรื่อง</div>
+                        <div>หมวดหมู่</div>
+                        <div class="ob">คำโปรย</div>
+                        <div class="bi bi-eye-fill se">29k</div>
+                        <div class="bi bi-list-ul lis">354</div>
+                        <div class="bi bi-heart-fill fav">154</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- เรื่อง 2 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="../img/cov2.jpeg" class="img-fluid cadimg" alt="">
+                </div>
+                <div class="col-8">
+                    <div class="det">
+                        <div class="name-c">ชื่อเรื่อง</div>
+                        <div>หมวดหมู่</div>
+                        <div class="ob">คำโปรย</div>
+                        <div class="bi bi-eye-fill se">29k</div>
+                        <div class="bi bi-list-ul lis">354</div>
+                        <div class="bi bi-heart-fill fav">154</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- เรื่อง 3 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
+                </div>
+                <div class="col-8">
+                    <div class="det">
+                        <div class="name-c">ชื่อเรื่อง</div>
+                        <div>หมวดหมู่</div>
+                        <div class="ob">คำโปรย</div>
+                        <div class="bi bi-eye-fill se">29k</div>
+                        <div class="bi bi-list-ul lis">354</div>
+                        <div class="bi bi-heart-fill fav">154</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- tag มาแรง -->
+<div class="container w-75">
+    <h4>Tag มาแรง</h4>
+    <hr>
+    <div class="tag">
+        <span>#tag1</span>
+        <span>#tag2</span>
+        <span>#tag3</span>
+        <span>#tag4</span>
+        <span>#tag5</span>
+        <span>#tag6</span>
+        <span>#tag7</span>
+        <span>#tag8</span>
+        <span>#tag9</span>
+        <span>#tag10</span>
+        <span>#tag11</span>
+        <span>#tag12</span>
+    </div>
+</div>
+<br>
+<!-- โฆษณา -->
+<div class="container w-75">
+    <div class="row">
+        <div class="col">
+            <a href="#" class="ban">
+                <img src="../img/sp1.jpeg" class="sp" alt="">
+                <div class="body">
+                    <div class="Na">ชื่อเรื่อง</div>
+                    <div class="Us">คนแต่ง(สำนักพิมพ์)</div>
+                    <div class="Ca"> | หมวดหมู่</div>
+                    <div class="Ty"> | ประเภท</div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="#" class="ban">
+                <img src="../img/sp2.jpeg" class="sp" alt="">
+                <div class="body">
+                    <div class="Na">ชื่อเรื่อง</div>
+                    <div class="Us">คนแต่ง(สำนักพิมพ์)</div>
+                    <div class="Ca"> | หมวดหมู่</div>
+                    <div class="Ty"> | ประเภท</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<!-- รายกายอัปเดตล่าสุด -->
+<div class="container w-75">
+    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <h4>รายกายอัปเดตล่าสุด</h4>
+    <hr>
+    <div class="row row-cols-1 row-cols-2">
+        <!-- เรื่อง 1 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
+                </div>
+                <div class="col-8">
+                    <div class="det">
+                        <div class="name-c">ชื่อเรื่อง</div>
+                        <div>หมวดหมู่</div>
+                        <div class="ob">คำโปรย</div>
+                        <div class="bi bi-eye-fill se">29k</div>
+                        <div class="bi bi-list-ul lis">354</div>
+                        <div class="bi bi-heart-fill fav">154</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- เรื่อง 2 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="../img/cov2.jpeg" class="img-fluid cadimg" alt="">
+                </div>
+                <div class="col-8">
+                    <div class="det">
+                        <div class="name-c">ชื่อเรื่อง</div>
+                        <div>หมวดหมู่</div>
+                        <div class="ob">คำโปรย</div>
+                        <div class="bi bi-eye-fill se">29k</div>
+                        <div class="bi bi-list-ul lis">354</div>
+                        <div class="bi bi-heart-fill fav">154</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- เรื่อง 3 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
+                </div>
+                <div class="col-8">
+                    <div class="det">
+                        <div class="name-c">ชื่อเรื่อง</div>
+                        <div>หมวดหมู่</div>
+                        <div class="ob">คำโปรย</div>
+                        <div class="bi bi-eye-fill se">29k</div>
+                        <div class="bi bi-list-ul lis">354</div>
+                        <div class="bi bi-heart-fill fav">154</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- นิยายมาใหม่ -->
+<div class="container w-75">
+    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <h4>นิยายมาใหม่</h4>
+    <hr>
+    <!-- เรื่อง 1 -->
+    <div class="novel">
+        <a href="writing/write-page.html">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 2 -->
+    <div class="novel">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 3 -->
+    <div class="novel">
+        <a href="#">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 4 -->
+    <div class="novel md">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 5 -->
+    <div class="novel lg">
+        <a href="#">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 6 -->
+    <div class="novel lg">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+</div>
+<br>
+<!-- เรื่องสั้นมาใหม่ -->
+<div class="container w-75">
+    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <h4>เรื่องสั้นมาใหม่</h4>
+    <hr>
+    <!-- เรื่อง 1 -->
+    <div class="novel">
+        <a href="writing/write-page.html">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 2 -->
+    <div class="novel">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 3 -->
+    <div class="novel">
+        <a href="#">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 4 -->
+    <div class="novel md">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 5 -->
+    <div class="novel lg">
+        <a href="#">
+            <img src="../img/cov.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+    <!-- เรื่อง 6 -->
+    <div class="novel lg">
+        <a href="#">
+            <img src="../img/cov2.jpeg" class="cardimg" alt="">
+            <div class="detail">
+                <div class="name">ชื่อเรื่อง</div>
+                <div class="user">คนแต่ง</div>
+                <div class="categ">หมวดหมู่</div>
+                <span>31 ตอน</span>
+                <div class="see bi bi-eye-fill">2.1k</div>
+            </div>
+        </a>
+    </div>
+</div>
+<br>
+<!-- top chart นิยาย -->
+<div class="container w-75">
+    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <h4>Top Chart นิยาย</h4>
+    <hr>
+    <div class="row row-cols-1 row-cols-2">
+        <!-- top 1 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <img src="../img/top1.JPG" class="top" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 2 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <img src="../img/top2.JPG" class="top" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 3 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <img src="../img/top3.JPG" class="top" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 4 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <span>4</span>
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 5 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <span>5</span>
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- top chart เรื่องสั้น -->
+<div class="container w-75">
+    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <h4>Top Chart เรื่องสั้น</h4>
+    <hr>
+    <div class="row row-cols-1 row-cols-2">
+        <!-- top 1 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <img src="../img/top1.JPG" class="top" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 2 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <img src="../img/top2.JPG" class="top" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 3 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <img src="../img/top3.JPG" class="top" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 4 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <span>4</span>
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top 5 -->
+        <div class="col">
+            <div class="row g-0">
+                <div class="col-2 cha">
+                    <span>5</span>
+                </div>
+                <div class="col-3">
+                    <img src="../img/t1.jpeg" class="imtop" alt="">
+                </div>
+                <div class="col">
+                    <div class="deta">
+                        <div class="name">ชื่อเรื่อง</div>
+                        <div class="cat">หมวดหมู่</div>
+                        <div class="type">ประเภท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- โฆษณา -->
+<div class="container w-75">
+    <div class="row">
+        <div class="col">
+            <a href="#" class="ban">
+                <img src="../img/sp1.jpeg" class="sp" alt="">
+                <div class="body">
+                    <div class="Na">ชื่อเรื่อง</div>
+                    <div class="Us">คนแต่ง(สำนักพิมพ์)</div>
+                    <div class="Ca"> | หมวดหมู่</div>
+                    <div class="Ty"> | ประเภท</div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="#" class="ban">
+                <img src="../img/sp2.jpeg" class="sp" alt="">
+                <div class="body">
+                    <div class="Na">ชื่อเรื่อง</div>
+                    <div class="Us">คนแต่ง(สำนักพิมพ์)</div>
+                    <div class="Ca"> | หมวดหมู่</div>
+                    <div class="Ty"> | ประเภท</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<%- include("partials/footer") %>
+
+<style>
+    footer {
+    background-color: #404040;
+    padding: 20px;
+}
+
+.footer {
+    text-align: center;
+    color: #b3b3b3;
+    font-size: medium;
+}
+
+/* banner */
+.swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imcenter {
+    display: flex;
+    justify-content: center;
+}
+
+.banim {
+    max-height: 330px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 5px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: hotpink;
+}
+
+/* แนะนำ นิยายมาใหม่ เรื่องสั้นมาใหม่ */
+.seemore {
+    text-decoration: none;
+    color: grey;
+    float: right;
+}
+
+.seemore:hover {
+    color: pink;
+}
+
+.novel {
+    display: inline-table;
+    width: 150px;
+    border: 1px solid pink;
+    border-radius: 5px;
+    margin: 0 14px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .lg {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .md {
+        display: none;
+    }
+}
+
+.novel a,
+.novel a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.cardimg {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.detail {
+    padding: 10px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.user {
+    color: grey;
+    font-size: small;
+}
+
+.categ {
+    font-size: small;
+}
+
+.detail span {
+    float: right;
+    font-size: small;
+    background-color: #ececec;
+    padding: 0 3px;
+    border-radius: 5px;
+}
+
+.see {
+    font-size: small;
+}
+
+/* tag */
+.tag span {
+    background-color: #ececec;
+    padding: 5px 8px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+/* top chart */
+.cha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cha span {
+    font-size: x-large;
+    font-weight: 700;
+    color: grey;
+}
+
+.top {
+    height: 40px;
+    object-fit: cover;
+}
+
+.imtop {
+    height: 100px;
+    border-radius: 10px;
+}
+
+.cat,
+.type {
+    color: grey;
+}
+
+/* โฆษณา */
+.ban,
+.ban:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+.body {
+    padding: 8px;
+}
+
+.Na {
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+
+.Us,
+.Ca,
+.Ty {
+    display: inline;
+}
+
+.sp {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* รายกายอัปเดต อ่านต่อ */
+.cadimg {
+    max-height: 200px;
+    border-radius: 5px;
+}
+
+.det {
+    padding: 0 8px;
+}
+
+.name-c {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.ob {
+    padding: 10px 0;
+    font-size: small;
+    color: grey;
+    height: 110px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .ob {
+        height: 80px;
+    }
+}
+
+.se,
+.lis,
+.fav {
+    display: inline;
+    font-size: small;
+    margin: 0 5px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Verdana", 'Bai Jamjuree', sans-serif;
+}
+
+/* navbar */
+nav {
+    border-bottom: 1px solid #ddd;
+}
+
+/* name brand */
+#name-brand {
+    color: rgb(248, 167, 181);
+    font-size: x-large;
+}
+
+/* dropdown หมวดหมู่ */
+.cate {
+    width: 545px;
+}
+
+.drop-item {
+    text-decoration: none;
+    color: grey;
+}
+
+.drop-item:hover {
+    color: pink;
+}
+
+.row {
+    margin: 10px 5px;
+}
+
+/* subnav */
+.manunav {
+    text-align: center;
+    margin: 10px;
+}
+
+.manunav-item {
+    text-decoration: none;
+    color: grey;
+    margin: 0 20px;
+    font-size: large;
+}
+
+.manunav-item:hover {
+    color: pink;
+}
+
+/* button login */
+.login {
+    text-decoration: none;
+    color: grey;
+    border: 2px solid pink;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.login:hover {
+    color: white;
+    background-color: pink;
+}
+/* notification */
+.noti {
+    color: grey;
+    font-size: x-large;
+}
+
+.noti:hover {
+    color: pink;
+}
+
+.notifi {
+    margin: 0 20px;
+}
+
+/* username */
+.username {
+    text-decoration: none;
+    color: grey;
+}
+
+.username:hover {
+    color: pink;
+}
+
+/* user dropdown */
+.dropdown-item:focus {
+    background-color: pink;
+}
+
+</style>

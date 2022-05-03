@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a id="name-brand" class="navbar-brand" href="/">Yomu</a>
+        <!-- menu ตอนย่อ -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link bi bi-justify" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        หมวดหมู่
+                    </a>
+                    <!-- dropdown link ไปหน้าหลักแต่ละหมวด -->
+                    <ul class="dropdown-menu cate" aria-labelledby="navbarDropdown">
+                        <li class="row">
+                            <a class="col drop-item" href="/novels/category/โรแมนติก">โรแมนติก</a>
+                            <a class="col drop-item" href="/novels/category/แฟนตาซี">แฟนตาซี</a>
+                            <a class="col drop-item" href="/novels/category/ดราม่า">ดราม่า</a>
+                            <a class="col drop-item" href="/novels/category/ผจญภัย">ผจญภัย</a>
+                        </li>
+                        <li class="row">
+                            <a class="col drop-item" href="/novels/category/Action">Action</a>
+                            <a class="col drop-item" href="/novels/category/LGBTQ+">LGBTQ+</a>
+                            <a class="col drop-item" href="/novels/category/ลึกลับ">ลึกลับ</a>
+                            <a class="col drop-item" href="/novels/category/สืบสวน">สืบสวน</a>
+                        </li>
+                        <li class="row">
+                            <a class="col drop-item" href="/novels/category/Comedy">Comedy</a>
+                            <a class="col drop-item" href="/novels/category/กีฬา">กีฬา</a>
+                            <a class="col drop-item" href="/novels/category/วรรณกรรม">วรรณกรรม</a>
+                            <a class="col drop-item" href="/novels/category/ย้อนยุค">ย้อนยุค</a>
+                        </li>
+                        <li class="row">
+                            <a class="col drop-item" href="/novels/category/ผู้ใหญ่">ผู้ใหญ่</a>
+                            <a class="col drop-item" href="/novels/category/สยองขวัญ">สยองขวัญ</a>
+                            <a class="col drop-item" href="/novels/category/Fanfiction">Fanfiction</a>
+                            <a class="col drop-item" href="/novels/category/Light-Novel">Light-Novel</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0" action="/novels/search" method="GET">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="term" aria-label="Search">
+                    </form>
+                </li>
+            </ul>
+            <% if(user) { %>
+                <div class="d-flex">
+                    <div class="dropdown">
+                        <a class="username" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Username
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="/account">Profile</a></li>
+                            <li><a class="dropdown-item" href="../reading.html">Reading</a></li>
+                            <li><a class="dropdown-item" href="/novels/mynovel">Writing</a></li>
+                            <li><a class="dropdown-item" href="#">Setting</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            <% } else { %>
+                <form class="d-flex">
+                    <a class="login" href="/login" role="button">เข้าสู่ระบบ</a>
+                </form>
+                <form class="d-flex">
+                    <a class="login" href="/register" role="button">สมัครสมาชิก</a>
+                </form>
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+<!-- subnav -->
+<div class="manunav">
+    <a class="manunav-item" href="#">นิยายแปล</a>
+    <a class="manunav-item" href="#">นิยายรายตอน</a>
+    <a class="manunav-item" href="#">เรื่องสั้น</a>
+</div>

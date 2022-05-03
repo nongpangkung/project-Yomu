@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+    <br>
+    <br>
+    <!-- หัวข้อ -->
+    <div class="container">
+        <h3>My Writing</h3>
+        <hr>
+    </div>
+        <!-- เรื่อง -->
+        <div class="container w-75">
+            <!-- ปุ่ม -->
+            <div class="butt">
+                <a href="/novels/addnovel" type="button" class="add bi bi-plus-lg"> เพิ่มงานเขียน</a> <br>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2">
+                <!-- เรื่อง 1 -->
+                <% novel.forEach((novel) => { %>
+                <div class="col">
+                    <div class="row size">
+                        <div class="col-4 wripic">
+                            <img src="<%= novel.image %>" alt="" class="writepic">
+                        </div>
+                        <div class="col wridet">
+                            <a href="/novels/<%= novel._id %>"><div class="nameti"><%= novel.title %></div></a>
+                            <a href="#"><%= novel.category %></a>
+                            <div class="ob-novels"><%= novel.description.substring(0,80) +"..." %></div>
+                            <hr>
+                            <div class="chap">5 ตอน</div>
+                            <div class="fav bi bi-heart-fill"> 32</div>
+                            <div class="com bi bi-chat-dots-fill"> 45</div>
+                            <div class="see bi bi-eye-fill"> 12</div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+<%- include("partials/footer") %>

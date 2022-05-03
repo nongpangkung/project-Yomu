@@ -1,0 +1,28 @@
+/* notification */
+.noti {
+    color: grey;
+    font-size: x-large;
+}
+
+.noti:hover {
+    color: pink;
+}
+
+.notifi {
+    margin: 0 20px;
+}
+
+/* username */
+.username {
+    text-decoration: none;
+    color: grey;
+}
+
+.username:hover {
+    color: pink;
+}
+
+/* user dropdown */
+.dropdown-item:focus {
+    background-color: pink;
+}

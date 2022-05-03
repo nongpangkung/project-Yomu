@@ -1,0 +1,43 @@
+.center {
+    text-align: center;
+}
+
+.manage {
+    font-size: x-large;
+}
+
+/* ปุ่ม */
+.all {
+    background-color: white;
+    border: 2px solid pink;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.add, .add:hover {
+    float: right;
+    text-decoration: none;
+    background-color: pink;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* ตาราง */
+table {
+    margin-top: 10px;
+}
+
+.edit, .edit:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid grey;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+select {
+    padding: 3px 5px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}

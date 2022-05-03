@@ -1,0 +1,96 @@
+.bc {
+    background-color: #F7F7F7;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 30px 0;
+}
+
+/* หัวข้อ manu */
+h3 {
+    text-align: center;
+}
+
+.manu {
+    margin-top: 25px;
+    text-align: center;
+}
+
+span {
+    margin: 0 15px;
+}
+
+span:focus-within {
+    border-bottom: 3px solid pink;
+}
+
+span a, span a:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+span a:focus-within {
+    color: black;
+}
+
+/* ปุ่ม */
+.butt {
+    text-align: right;
+}
+
+.butt button {
+    background-color: pink;
+    color: white;
+    border: 0;
+    padding: 2px 3px;
+    border-radius: 5px;
+}
+
+.butt span {
+    color: grey;
+}
+
+/* เรื่อง */
+.wripic {
+    display: flex;
+    justify-content: right;
+}
+
+.writepic {
+    max-height: 180px;
+    border-radius: 5px
+}
+
+.wridet {
+    border: 2px solid pink;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nameti {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.wridet a, .wridet a:hover {
+    color: grey;
+    font-size: small;
+}
+
+.ob-novels {
+    color: grey;
+    margin-top: 5px;
+    height: 50px;
+}
+
+.chap {
+    float: right;
+    background-color: #ececec;
+    padding: 0 8px;
+    border-radius: 10px;
+}
+
+.fav, .com, .see {
+    display: inline;
+    margin: 0 3px;
+    font-size: small;
+}

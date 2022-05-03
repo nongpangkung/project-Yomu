@@ -1,0 +1,89 @@
+<%- include("partials/header") %>
+<!-- หัวข้อ กับ ช่องค้นหา -->
+<div class="container">
+    <h2>ค้นหา</h2>
+    <form action="/novels/search" method="GET">
+    <input class="search-bar" type="search" name="term" id="" placeholder="Search">
+    </form>
+</div>
+
+<!-- แถบเลือก -->
+<div class="container">
+    <div class="ob">
+        <a class="search-name" href="#">ทั้งหมด</a>
+    </div>
+    <div class="ob">
+        <a class="search-name" href="#">นิยายแปล</a>
+    </div>
+    <div class="ob">
+        <a class="search-name" href="#">นิยายรายตอน</a>
+    </div>
+    <div class="ob">
+        <a class="search-name" href="#">เรื่องสั้น</a>
+    </div>
+
+    <!-- ปุ่ม filter -->
+    <button class="bi bi-filter filter" onclick="showhidedisplay()"> ปรับแต่ง</button>
+    <!-- content ตอนกดปุ่ม filter -->
+    <div class="con-filter center" id="filter">
+        <span>หมวดหมู่</span>
+        <select name="category" id="">
+            <option value="all" selected>ทั้งหมด</option>
+            <option value="romantic">โรแมนติก</option>
+            <option value="fantasy">แฟนตาซี</option>
+            <option value="drama">ดราม่า</option>
+            <option value="adventure">ผจญภัย</option>
+            <option value="action">Action</option>
+            <option value="LGBTQ+">LGBTQ+</option>
+            <option value="mysterious">ลึกลับ</option>
+            <option value="investigate">สืบสวน</option>
+            <option value="comedy">Comedy</option>
+            <option value="sport">กีฬา</option>
+            <option value="literature">วรรณกรรม</option>
+            <option value="retro">ย้อนยุค</option>
+            <option value="adult">ผู้ใหญ่</option>
+            <option value="horror">สยองขวัญ</option>
+            <option value="fanfiction">Fanfiction</option>
+            <option value="lightnovel">Light-Novel</option>
+        </select>
+        <span>สถานะ</span>
+        <select name="status" id="">
+            <option value="all" selected>ทั้งหมด</option>
+            <option value="notfinished">ยังไม่จบ</option>
+            <option value="finished">จบแล้ว</option>
+        </select>
+        <span>เรียงลำดับจาก</span>
+        <select name="sort" id="">
+            <option value="relevant" selected>ความเกี่ยวข้อง</option>
+            <option value="visitors">ยอดเข้าชม</option>
+            <option value="Popular">ยอดกดถูกใจ</option>
+            <option value="lastupdate">วันที่อัพเดทล่าสุด</option>
+        </select>
+    </div>
+    <hr>
+</div>
+
+<!-- ข้อความตรงกลาง -->
+<div class="container">
+    <div class="center">ค้นหานิยายแปล, นิยายรายตอน, เรื่องสั้น ได้จาก "กล่องค้นหา" ด้านบน</div>
+</div>
+<% novels.forEach((novel) => { %>
+    <div class="col">
+        <div class="row size">
+            <div class="col-4 wripic">
+                <img src="<%= novel.image %>" alt="" class="writepic">
+            </div>
+            <div class="col wridet">
+                <a href="/novels/<%= novel._id %>"><div class="nameti"><%= novel.title %></div></a>
+                <a href="#"><%= novel.category %></a>
+                <div class="ob-novels"><%= novel.description.substring(0,80) +"..." %></div>
+                <hr>
+                <div class="chap">5 ตอน</div>
+                <div class="fav bi bi-heart-fill"> 32</div>
+                <div class="com bi bi-chat-dots-fill"> 45</div>
+                <div class="see bi bi-eye-fill"> 12</div>
+            </div>
+        </div>
+    </div>
+<% }) %>
+<%- include("partials/footer") %>

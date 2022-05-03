@@ -1,0 +1,79 @@
+hr {
+    margin: 5px;
+}
+
+/* ช่องค้นหา */
+.search-bar {
+    width: 350px;
+    margin: 10px 5px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 2px solid grey;
+    outline: none;
+}
+
+.search-bar:focus {
+    border: 2px solid pink;
+}
+
+/* ประเภท <ทั้งหมด, นิยายแปล, นิยายรายตอน, เรื่องสั้น> */
+.ob {
+    display: inline;
+    padding: 4px 0;
+    margin-right: 20px;
+}
+
+.ob:focus-within {
+    border-bottom: 3px solid pink;
+}
+
+.search-name,
+.search-name:hover {
+    text-decoration: none;
+    color: grey;
+    font-size: medium;
+}
+
+.search-name:focus-within {
+    color: black;
+}
+
+/* ปุ่มปรับแต่ง */
+.filter {
+    float: right;
+    background-color: white;
+    color: grey;
+    border: 2px solid pink;
+    border-radius: 20px;
+    padding: 3px 10px;
+}
+
+.filter:hover {
+    background-color: pink;
+    color: white;
+}
+
+/* กลางเว็บ */
+.center {
+    text-align: center;
+}
+
+/* filter content */
+.con-filter {
+    margin: 20px;
+    color: grey;
+    display: none;
+}
+
+select {
+    padding: 3px;
+    border-radius: 10px;
+}
+
+/* ข้อความตรงกลาง */
+.space {
+    margin: 130px;
+    height: 300px;
+    font-size: larger;
+    color: grey;
+}

@@ -1,0 +1,70 @@
+<%- include("partials/header") %>
+<!-- ปกข้อมูล -->
+<div class="container w-75">
+    <div class="coverinfo">
+        <div class="row">
+            <div class="col-md-2 bcpic">
+                <img src="../../img/test3.jpg" alt="" class="img-fluid img-thumbnail coverimg">
+            </div>
+            <div class="col bcinfo">
+                <div class="info">
+                    <h5>DisplayName</h5>
+                    <div><%= user.name %></div>
+                    <div><%= user.email %></div>
+                    <div class="row center">
+                        <div class="col">
+                            <div>งานเขียน</div>
+                            <div>4</div>
+                        </div>
+                        <div class="col">
+                            <div>กำลังติดตาม</div>
+                            <div>30</div>
+                        </div>
+                        <div class="col">
+                            <div>คนติดตาม</div>
+                            <div>20</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- edit -->
+<div class="container w-75">
+    <br>
+    <div class="">
+        <a href="editprofile.html" type="button" class="bi bi-pencil-fill editpro"> Edit Profile</a>
+        <div>งานเขียนทั้งหมด 4 เรื่อง</div>
+    </div>
+</div>
+
+<!-- งานเขียน -->
+<div class="container w-75">
+    <div class="row row-cols-1 row-cols-md-2">
+        <!-- เรื่อง 1 -->
+        <% novels.forEach((novel) => { %>
+        <div class="col">
+            <div class="row size">
+                <div class="col-4 wripic">
+                    <img src="<%= novel.image %>" alt="" class="writepic">
+                </div>
+                <div class="col wridet">
+                    <div class="nameti"><%= novel.title %></div>
+                    <a href="#"><%= novel.category %></a>
+                    <div class="ob"><%= novel.description.substring(0,80) +"..." %></div>
+                    <hr>
+                    <div class="chap">5 ตอน</div>
+                    <div class="fav bi bi-heart-fill"> 32</div>
+                    <div class="com bi bi-chat-dots-fill"> 45</div>
+                    <div class="see bi bi-eye-fill"> 12</div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>

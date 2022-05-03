@@ -1,0 +1,251 @@
+<%- include("partials/header") %>
+    <!-- หัวข้อ และ เมนู -->
+    <div class="container w-50">
+        <div class="bc">
+            <h3><%= categoryname %></h3>
+            <div class="manu">
+                <span>
+                    <a href="#">ใหม่มาแรง</a>
+                </span>
+                <span>
+                    <a href="#">เรื่องฮิต</a>
+                </span>
+                <span>
+                    <a href="#">ขายดี</a>
+                </span>
+                <span>
+                    <a href="#">อัปเดต</a>
+                </span>
+                <span>
+                    <a href="#">จบแล้ว</a>
+                </span>
+                <span>
+                    <a href="#">Top Chart</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- เรื่อง -->
+    <div class="container w-75">
+        <!-- ปุ่ม -->
+        <div class="butt">
+            <button class="bi bi-chevron-left"></button>
+            <span>หน้าที่ 1</span>
+            <button class="bi bi-chevron-right"></button>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2">
+            <!-- เรื่อง 1 -->
+            <% novels.forEach((novel) => { %>
+            <div class="col">
+                <div class="row size">
+                    <div class="col-4 wripic">
+                        <img src="<%= novel.image %>" alt="" class="writepic">
+                    </div>
+                    <div class="col wridet">
+                        <a href="/novels/<%= novel._id %>"><div class="nameti"><%= novel.title %></div></a>
+                        <a href="#"><%= novel.category %></a>
+                        <div class="ob-novels"><%= novel.description.substring(0,80) +"..." %></div>
+                        <hr>
+                        <div class="chap">5 ตอน</div>
+                        <div class="fav bi bi-heart-fill"> 32</div>
+                        <div class="com bi bi-chat-dots-fill"> 45</div>
+                        <div class="see bi bi-eye-fill"> 12</div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+<%- include("partials/footer") %>
+
+<style>
+    .bc {
+    background-color: #F7F7F7;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 30px 0;
+}
+
+/* หัวข้อ manu */
+h3 {
+    text-align: center;
+}
+
+.manu {
+    margin-top: 25px;
+    text-align: center;
+}
+
+span {
+    margin: 0 15px;
+}
+
+span:focus-within {
+    border-bottom: 3px solid pink;
+}
+
+span a, span a:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+span a:focus-within {
+    color: black;
+}
+
+/* ปุ่ม */
+.butt {
+    text-align: right;
+}
+
+.butt button {
+    background-color: pink;
+    color: white;
+    border: 0;
+    padding: 2px 3px;
+    border-radius: 5px;
+}
+
+.butt span {
+    color: grey;
+}
+
+/* เรื่อง */
+.wripic {
+    display: flex;
+    justify-content: right;
+}
+
+.writepic {
+    max-height: 180px;
+    border-radius: 5px
+}
+
+.wridet {
+    border: 2px solid pink;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nameti {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.wridet a, .wridet a:hover {
+    color: grey;
+    font-size: small;
+}
+
+.ob-novels {
+    color: grey;
+    margin-top: 5px;
+    height: 50px;
+}
+
+.chap {
+    float: right;
+    background-color: #ececec;
+    padding: 0 8px;
+    border-radius: 10px;
+}
+
+.fav, .com, .see {
+    display: inline;
+    margin: 0 3px;
+    font-size: small;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Verdana", 'Bai Jamjuree', sans-serif;
+}
+
+/* navbar */
+nav {
+    border-bottom: 1px solid #ddd;
+}
+
+/* name brand */
+#name-brand {
+    color: rgb(248, 167, 181);
+    font-size: x-large;
+}
+
+/* dropdown หมวดหมู่ */
+.cate {
+    width: 545px;
+}
+
+.drop-item {
+    text-decoration: none;
+    color: grey;
+}
+
+.drop-item:hover {
+    color: pink;
+}
+
+.row {
+    margin: 10px 5px;
+}
+
+/* subnav */
+.manunav {
+    text-align: center;
+    margin: 10px;
+}
+
+.manunav-item {
+    text-decoration: none;
+    color: grey;
+    margin: 0 20px;
+    font-size: large;
+}
+
+.manunav-item:hover {
+    color: pink;
+}
+/* notification */
+.noti {
+    color: grey;
+    font-size: x-large;
+}
+
+.noti:hover {
+    color: pink;
+}
+
+.notifi {
+    margin: 0 20px;
+}
+
+/* username */
+.username {
+    text-decoration: none;
+    color: grey;
+}
+
+.username:hover {
+    color: pink;
+}
+
+/* user dropdown */
+.dropdown-item:focus {
+    background-color: pink;
+}
+footer {
+    background-color: #404040;
+    padding: 20px;
+}
+
+.footer {
+    text-align: center;
+    color: #b3b3b3;
+    font-size: medium;
+}
+</style>

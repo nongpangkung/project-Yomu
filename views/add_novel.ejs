@@ -1,0 +1,95 @@
+<%- include("partials/header") %>
+    <!-- เส้นทาง -->
+    <div class="container">
+        <a href="writing.html" class="direc">My Writing ></a>
+    </div>
+
+    <form action="/novels" method="POST">
+        <!-- ปกนิยาย -->
+        <div class="container w-75 cont">
+            <div class="row g-0">
+                <div class="col-5 covim">
+                    <img id="output_image" class="preview">
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <input name="title" type="text" placeholder="ชื่อเรื่อง" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea name="description" id="" cols="30" rows="6" placeholder="คำโปรย" class="form-control"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select name="category" id="" class="form-select">
+                            <option selected>เลือกหมวดหมู่</option>
+                            <option>โรแมนติก</option>
+                            <option>แฟนตาซี</option>
+                            <option>ดราม่า</option>
+                            <option>ผจญภัย</option>
+                            <option>Action</option>
+                            <option>LGBTQ+</option>
+                            <option>ลึกลับ</option>
+                            <option>สืบสวน</option>
+                            <option>Comedy</option>
+                            <option>กีฬา</option>
+                            <option>วรรณกรรม</option>
+                            <option>ย้อนยุค</option>
+                            <option>ผู้ใหญ่</option>
+                            <option>สยองขวัญ</option>
+                            <option>Fanfiction</option>
+                            <option>Light-Novel</option>
+                        </select>
+                        <select name="rate" id="" class="form-select">
+                            <option selected>เลือกระดับเนื้อหา</option>
+                            <option>ทุกวัย</option>
+                            <option>อายุ 3 - 5 ปี</option>
+                            <option>อายุ 6 - 12 ปี</option>
+                            <option>อายุ 13 ปีขึ้นไป</option>
+                            <option>อายุ 18 ปีขึ้นไป</option>
+                            <option>เฉพาะผู้ใหญ่ อายุ 20 ปีขึ้นไป</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select name="type" id="" class="form-select">
+                            <option selected>เลือกประเภท</option>
+                            <option>นิยายแปล</option>
+                            <option>นิยายรายตอน</option>
+                            <option>เรื่องสั้น</option>
+                        </select>
+                        <select name="publisher" id="" class="form-select">
+                            <option value="public" selected>public</option>
+                            <option value="not-public">not-public</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" name="image" placeholder="link image" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- intro -->
+        <div class="container w-75 cont">
+            <h4>แนะนำเรื่อง</h4>
+            <textarea name="intro" id="editor"></textarea>
+        </div>
+
+        <!-- tag ปุ่ม -->
+        <div class="container w-75 cont">
+            <span>แท๊ก (Tag)</span>
+            <input name="tag" type="text" placeholder="#Tag" class="tag">
+            <div class="d-grid gap-2 d-md-block btnn">
+                <button class="save" type="submit">บันทึก</button>
+                <a href="writing.html" type="button" class="cancel">ยกเลิก</a>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        //rich text editor
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+<%- include("partials/footer") %>

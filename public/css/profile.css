@@ -1,0 +1,89 @@
+/* ปก */
+.bcpic {
+    border-radius: 5px 0 0 5px;
+    background: linear-gradient(to right, rgba(166, 193, 238, 1), rgba(251, 194, 235, 1));
+}
+
+.coverimg {
+    margin: 10px 0;
+    width: 160px;
+}
+
+.bcinfo {
+    border: 2px solid rgba(251, 194, 235, 1);
+    border-radius: 0 5px 5px 0;
+}
+
+.info {
+    margin: 10px 0;
+}
+
+.center {
+    text-align: center;
+}
+
+/*edit */
+.edit {
+    margin: 20px 0;
+}
+
+.editpro {
+    text-decoration: none;
+    float: right;
+    background-color: white;
+    border: 2px solid rgba(251, 194, 235, 1);
+    color: grey;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.editpro:hover {
+    background-color: rgba(251, 194, 235, 1);
+    color: white;
+}
+
+/* งานเขียน */
+.wripic {
+    display: flex;
+    justify-content: right;
+}
+
+.writepic {
+    max-height: 180px;
+    border-radius: 5px
+}
+
+.wridet {
+    border: 2px solid pink;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nameti {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.wridet a, .wridet a:hover {
+    color: grey;
+    font-size: small;
+}
+
+.ob {
+    color: grey;
+    margin-top: 5px;
+    height: 50px;
+}
+
+.chap {
+    float: right;
+    background-color: #ececec;
+    padding: 0 8px;
+    border-radius: 10px;
+}
+
+.fav, .com, .see {
+    display: inline;
+    margin: 0 3px;
+    font-size: small;
+}

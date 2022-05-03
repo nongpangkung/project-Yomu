@@ -1,0 +1,277 @@
+<%- include("partials/header") %>
+    <!-- เส้นทาง -->
+    <div class="container cont">
+        <a href="writing.html" class="direc">My Writing ></a>
+        <span>ชื่อเรื่อง</span>
+    </div>
+
+    <!-- รายละเอียด -->
+    <form action="/novels/<%= novel._id %>/<%= chapters._id %>?_method=PUT" method="POST">
+    <div class="container w-50 cont">
+        <div class="row">
+            <div class="col-sm-4">
+                <div>บทที่*</div>
+                <input name="number" class="form-control" type="text" value="<%= chapters.number %>">
+            </div>
+            <div class="col-sm-8">
+                <div>ชื่อตอน</div>
+                <input name="title" class="form-control" type="text" value="<%= chapters.title %>">
+            </div>
+        </div>
+    </div>
+
+    <!-- เนื้อหา -->
+    <div class="container w-75 cont">
+        <h4>เนื้อหา</h4>
+        <textarea name="text" id="editor"><%= chapters.text %></textarea>
+    </div>
+
+    <!-- ปุ่ม -->
+    <div class="container">
+        <div class="d-grid gap-2 d-md-block btnn">
+            <button class="save" type="submit">บันทึก</button>
+            <a href="manage-write.html" type="button" class="cancel">ยกเลิก</a>
+        </div>
+    </div>
+    <input type="hidden" name="novelId" value="<%= novel._id %>">
+    </form>
+
+    <script>
+        //rich text editor
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+
+<%- include("partials/footer") %>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Verdana", 'Bai Jamjuree', sans-serif;
+            }
+
+            /* navbar */
+            nav {
+                border-bottom: 1px solid #ddd;
+            }
+
+            /* name brand */
+            #name-brand {
+                color: rgb(248, 167, 181);
+                font-size: x-large;
+            }
+
+            /* dropdown หมวดหมู่ */
+            .cate {
+                width: 545px;
+            }
+
+            .drop-item {
+                text-decoration: none;
+                color: grey;
+            }
+
+            .drop-item:hover {
+                color: pink;
+            }
+
+            .row {
+                margin: 10px 5px;
+            }
+
+            /* subnav */
+            .manunav {
+                text-align: center;
+                margin: 10px;
+            }
+
+            .manunav-item {
+                text-decoration: none;
+                color: grey;
+                margin: 0 20px;
+                font-size: large;
+            }
+
+            .manunav-item:hover {
+                color: pink;
+            }
+
+            footer {
+                background-color: #404040;
+                padding: 20px;
+            }
+
+            .footer {
+                text-align: center;
+                color: #b3b3b3;
+                font-size: medium;
+            }
+
+            /* button login */
+            .login {
+                text-decoration: none;
+                color: grey;
+                border: 2px solid pink;
+                background-color: white;
+                border-radius: 20px;
+                padding: 5px 15px;
+            }
+
+            .login:hover {
+                color: white;
+                background-color: pink;
+            }
+
+            /* img login */
+            .img-login {
+                width: 325px;
+            }
+
+            /* modal */
+            .text-center {
+                text-align: center;
+            }
+
+            .close {
+                float: right;
+                margin: 10px 10px 0 0;
+            }
+
+            .topic {
+                font-size: x-large;
+            }
+
+            .facebook {
+                background-color: #3b5998;
+                color: white;
+                border: 0;
+                border-radius: 20px;
+                padding: 5px 15px;
+                margin: 10px 0;
+            }
+
+            .line {
+                background-color: #00B900;
+                color: white;
+                border: 0;
+                border-radius: 20px;
+                padding: 5px 33.5px;
+            }
+
+            .apple {
+                background-color: black;
+                color: white;
+                border: 0;
+                border-radius: 20px;
+                padding: 5px 30px;
+            }
+
+            .or-center {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .input {
+                padding: 5px;
+                margin: 5px 0;
+                border-radius: 17px;
+                border: 2px solid grey;
+                outline: none;
+            }
+
+            .input:focus {
+                border: 2px solid pink;
+            }
+
+            .clearlink,
+            .clearlink:hover {
+                text-decoration: none;
+                color: pink;
+            }
+
+            .submit-modal {
+                background-color: pink;
+                color: white;
+                border: 0;
+                border-radius: 20px;
+                padding: 5px 50px;
+                margin: 15px 0;
+            }
+
+            .regis {
+                background-color: white;
+                border: 2px solid pink;
+                border-radius: 15px;
+                padding: 3px 10px;
+                margin: 10px 0;
+            }
+
+            .borderright {
+                border-right: 2px solid pink;
+            }
+
+            .in-regis {
+                width: 310px;
+                margin: 5px 25px;
+            }
+
+            .text {
+                margin: 5px 0 0 30px;
+            }
+
+            .check {
+                margin: 15px 0;
+            }
+
+            /* เส้นทาง */
+            .direc {
+                text-decoration: none;
+                color: grey;
+            }
+
+            .direc:hover {
+                color: pink;
+            }
+
+            /* รายละเอียด */
+            .cont {
+                margin-top: 30px;
+            }
+
+            input[type="text"]:focus {
+                border-color: hotpink;
+                box-shadow: none;
+                outline: 0 none;
+            }
+
+            /* ปุ่ม */
+            .btnn {
+                margin: 30px 0;
+                text-align: center;
+            }
+
+            .save {
+                background-color: pink;
+                color: white;
+                border: 0;
+                padding: 8px 20px;
+                border-radius: 20px;
+            }
+
+            .cancel,
+            .cancel:hover {
+                text-decoration: none;
+                border: 2px solid pink;
+                color: grey;
+                padding: 6px 15px;
+                border-radius: 20px;
+                margin-left: 15px;
+            }
+        </style>

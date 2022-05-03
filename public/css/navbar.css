@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Verdana", 'Bai Jamjuree', sans-serif;
+}
+
+/* navbar */
+nav {
+    border-bottom: 1px solid #ddd;
+}
+
+/* name brand */
+#name-brand {
+    color: rgb(248, 167, 181);
+    font-size: x-large;
+}
+
+/* dropdown หมวดหมู่ */
+.cate {
+    width: 545px;
+}
+
+.drop-item {
+    text-decoration: none;
+    color: grey;
+}
+
+.drop-item:hover {
+    color: pink;
+}
+
+.row {
+    margin: 10px 5px;
+}
+
+/* subnav */
+.manunav {
+    text-align: center;
+    margin: 10px;
+}
+
+.manunav-item {
+    text-decoration: none;
+    color: grey;
+    margin: 0 20px;
+    font-size: large;
+}
+
+.manunav-item:hover {
+    color: pink;
+}
