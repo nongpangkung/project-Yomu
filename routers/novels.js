@@ -66,8 +66,17 @@ router.get("/search", async (req, res) => {
 //Category
 router.get("/category/:categoryName", async (req, res) => {
     try {
+        function Category(topicname) {
+            this.topicname = topicname
+            this.show = function () {
+              return "This!, " + this.topicname
+            }
+        }
+        
+        var cate = new Category(req.params.categoryName);
+
         const novels = await Novel.find({category: req.params.categoryName}).exec()
-        const categoryname =  req.params.categoryName;
+        const categoryname = cate.show()
         const typename =  req.params.typeName;
         res.render("novels",{novels,categoryname,typename})
     } catch (err) {
