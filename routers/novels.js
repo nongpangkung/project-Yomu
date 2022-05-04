@@ -9,7 +9,9 @@ const checkNovelOwner = require('../utils/checkNovelOwner')
 router.get("/", async (req, res) => {
     try {
         const novels = await Novel.find().exec();
-        res.render("novels", {novels});
+        const categoryname =  req.params.categoryName;
+        const typename =  req.params.typeName;
+        res.render("novels", {novels,categoryname,typename});
     } catch (err) {
         console.log(err);
         res.send("you broke it... /novels");
@@ -66,7 +68,21 @@ router.get("/category/:categoryName", async (req, res) => {
     try {
         const novels = await Novel.find({category: req.params.categoryName}).exec()
         const categoryname =  req.params.categoryName;
-        res.render("novels",{novels,categoryname})
+        const typename =  req.params.typeName;
+        res.render("novels",{novels,categoryname,typename})
+    } catch (err) {
+        console.log(err);
+        res.send("you broke it... /novels/:id");
+    }
+})
+
+//Type
+router.get("/type/:typeName", async (req, res) => {
+    try {
+        const novels = await Novel.find({type: req.params.typeName}).exec()
+        const categoryname =  req.params.categoryName;
+        const typename =  req.params.typeName;
+        res.render("novels",{novels,categoryname,typename})
     } catch (err) {
         console.log(err);
         res.send("you broke it... /novels/:id");
