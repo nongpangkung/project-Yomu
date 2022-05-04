@@ -96,9 +96,9 @@
     
     <!-- subnav -->
     <div class="manunav">
-        <a class="manunav-item" href="#">นิยายแปล</a>
-        <a class="manunav-item" href="#">นิยายรายตอน</a>
-        <a class="manunav-item" href="#">เรื่องสั้น</a>
+        <a class="manunav-item" href="/novels/type/นิยายแปล">นิยายแปล</a>
+        <a class="manunav-item" href="/novels/type/นิยายรายตอน">นิยายรายตอน</a>
+        <a class="manunav-item" href="/novels/type/เรื่องสั้น">เรื่องสั้น</a>
     </div>
 </head>
 
@@ -137,147 +137,21 @@
     <h4>เรื่องที่คุณอาจสนใจ</h4>
     <hr>
     <!-- เรื่อง 1 -->
+    <% novels.forEach((novel) => { %>
     <div class="novel">
-        <a href="writing/write-page.html">
-            <img src="../img/cov.jpeg" class="cardimg" alt="">
+        <a href="/novels/<%= novel._id %>">
+            <img src="<%= novel.image %>" class="cardimg" alt="">
             <div class="detail">
-                <div class="name">ชื่อเรื่อง</div>
-                <div class="user">คนแต่ง</div>
-                <div class="categ">หมวดหมู่</div>
+                <div class="name"><%= novel.title %></div>
+                <div class="user"><%= novel.owner.name %></div>
+                <div class="categ"><%= novel.category %></div>
                 <span>31 ตอน</span>
                 <div class="see bi bi-eye-fill">2.1k</div>
             </div>
         </a>
     </div>
-    <!-- เรื่อง 2 -->
-    <div class="novel">
-        <a href="#">
-            <img src="../img/cov2.jpeg" class="cardimg" alt="">
-            <div class="detail">
-                <div class="name">ชื่อเรื่อง</div>
-                <div class="user">คนแต่ง</div>
-                <div class="categ">หมวดหมู่</div>
-                <span>31 ตอน</span>
-                <div class="see bi bi-eye-fill">2.1k</div>
-            </div>
-        </a>
-    </div>
-    <!-- เรื่อง 3 -->
-    <div class="novel">
-        <a href="#">
-            <img src="../img/cov.jpeg" class="cardimg" alt="">
-            <div class="detail">
-                <div class="name">ชื่อเรื่อง</div>
-                <div class="user">คนแต่ง</div>
-                <div class="categ">หมวดหมู่</div>
-                <span>31 ตอน</span>
-                <div class="see bi bi-eye-fill">2.1k</div>
-            </div>
-        </a>
-    </div>
-    <!-- เรื่อง 4 -->
-    <div class="novel md">
-        <a href="#">
-            <img src="../img/cov2.jpeg" class="cardimg" alt="">
-            <div class="detail">
-                <div class="name">ชื่อเรื่อง</div>
-                <div class="user">คนแต่ง</div>
-                <div class="categ">หมวดหมู่</div>
-                <span>31 ตอน</span>
-                <div class="see bi bi-eye-fill">2.1k</div>
-            </div>
-        </a>
-    </div>
-    <!-- เรื่อง 5 -->
-    <div class="novel lg">
-        <a href="#">
-            <img src="../img/cov.jpeg" class="cardimg" alt="">
-            <div class="detail">
-                <div class="name">ชื่อเรื่อง</div>
-                <div class="user">คนแต่ง</div>
-                <div class="categ">หมวดหมู่</div>
-                <span>31 ตอน</span>
-                <div class="see bi bi-eye-fill">2.1k</div>
-            </div>
-        </a>
-    </div>
-    <!-- เรื่อง 6 -->
-    <div class="novel lg">
-        <a href="#">
-            <img src="../img/cov2.jpeg" class="cardimg" alt="">
-            <div class="detail">
-                <div class="name">ชื่อเรื่อง</div>
-                <div class="user">คนแต่ง</div>
-                <div class="categ">หมวดหมู่</div>
-                <span>31 ตอน</span>
-                <div class="see bi bi-eye-fill">2.1k</div>
-            </div>
-        </a>
-    </div>
-</div>
-
+    <% }) %>
 <br>
-<!-- อ่านต่อ -->
-<div class="container w-75">
-    <h4>อ่านต่อ</h4>
-    <hr>
-    <div class="row row-cols-1 row-cols-2">
-        <!-- เรื่อง 1 -->
-        <div class="col">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
-                </div>
-                <div class="col-8">
-                    <div class="det">
-                        <div class="name-c">ชื่อเรื่อง</div>
-                        <div>หมวดหมู่</div>
-                        <div class="ob">คำโปรย</div>
-                        <div class="bi bi-eye-fill se">29k</div>
-                        <div class="bi bi-list-ul lis">354</div>
-                        <div class="bi bi-heart-fill fav">154</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- เรื่อง 2 -->
-        <div class="col">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="../img/cov2.jpeg" class="img-fluid cadimg" alt="">
-                </div>
-                <div class="col-8">
-                    <div class="det">
-                        <div class="name-c">ชื่อเรื่อง</div>
-                        <div>หมวดหมู่</div>
-                        <div class="ob">คำโปรย</div>
-                        <div class="bi bi-eye-fill se">29k</div>
-                        <div class="bi bi-list-ul lis">354</div>
-                        <div class="bi bi-heart-fill fav">154</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- เรื่อง 3 -->
-        <div class="col">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
-                </div>
-                <div class="col-8">
-                    <div class="det">
-                        <div class="name-c">ชื่อเรื่อง</div>
-                        <div>หมวดหมู่</div>
-                        <div class="ob">คำโปรย</div>
-                        <div class="bi bi-eye-fill se">29k</div>
-                        <div class="bi bi-list-ul lis">354</div>
-                        <div class="bi bi-heart-fill fav">154</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <br>
 <!-- tag มาแรง -->
 <div class="container w-75">
@@ -329,21 +203,22 @@
 <br>
 <!-- รายกายอัปเดตล่าสุด -->
 <div class="container w-75">
-    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <a href="/novels" class="seemore">ดูทั้งหมด >></a>
     <h4>รายกายอัปเดตล่าสุด</h4>
     <hr>
     <div class="row row-cols-1 row-cols-2">
         <!-- เรื่อง 1 -->
+        <% novels.forEach((novel) => { %>
         <div class="col">
             <div class="row g-0">
                 <div class="col-4">
-                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
+                    <img src="<%= novel.image %>" class="img-fluid cadimg" alt="">
                 </div>
                 <div class="col-8">
                     <div class="det">
-                        <div class="name-c">ชื่อเรื่อง</div>
-                        <div>หมวดหมู่</div>
-                        <div class="ob">คำโปรย</div>
+                        <div class="name-c"><%= novel.title %></div>
+                        <div><%= novel.category %></div>
+                        <div class="ob"><%= novel.description.substring(0,80) +"..." %></div>
                         <div class="bi bi-eye-fill se">29k</div>
                         <div class="bi bi-list-ul lis">354</div>
                         <div class="bi bi-heart-fill fav">154</div>
@@ -351,48 +226,13 @@
                 </div>
             </div>
         </div>
-        <!-- เรื่อง 2 -->
-        <div class="col">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="../img/cov2.jpeg" class="img-fluid cadimg" alt="">
-                </div>
-                <div class="col-8">
-                    <div class="det">
-                        <div class="name-c">ชื่อเรื่อง</div>
-                        <div>หมวดหมู่</div>
-                        <div class="ob">คำโปรย</div>
-                        <div class="bi bi-eye-fill se">29k</div>
-                        <div class="bi bi-list-ul lis">354</div>
-                        <div class="bi bi-heart-fill fav">154</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- เรื่อง 3 -->
-        <div class="col">
-            <div class="row g-0">
-                <div class="col-4">
-                    <img src="../img/cov.jpeg" class="img-fluid cadimg" alt="">
-                </div>
-                <div class="col-8">
-                    <div class="det">
-                        <div class="name-c">ชื่อเรื่อง</div>
-                        <div>หมวดหมู่</div>
-                        <div class="ob">คำโปรย</div>
-                        <div class="bi bi-eye-fill se">29k</div>
-                        <div class="bi bi-list-ul lis">354</div>
-                        <div class="bi bi-heart-fill fav">154</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% }) %>
     </div>
 </div>
 <br>
 <!-- นิยายมาใหม่ -->
 <div class="container w-75">
-    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <a href="/novels" class="seemore">ดูทั้งหมด >></a>
     <h4>นิยายมาใหม่</h4>
     <hr>
     <!-- เรื่อง 1 -->
@@ -477,7 +317,7 @@
 <br>
 <!-- เรื่องสั้นมาใหม่ -->
 <div class="container w-75">
-    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <a href="/novels" class="seemore">ดูทั้งหมด >></a>
     <h4>เรื่องสั้นมาใหม่</h4>
     <hr>
     <!-- เรื่อง 1 -->
@@ -562,7 +402,7 @@
 <br>
 <!-- top chart นิยาย -->
 <div class="container w-75">
-    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <a href="/novels" class="seemore">ดูทั้งหมด >></a>
     <h4>Top Chart นิยาย</h4>
     <hr>
     <div class="row row-cols-1 row-cols-2">
@@ -661,7 +501,7 @@
 <br>
 <!-- top chart เรื่องสั้น -->
 <div class="container w-75">
-    <a href="#" class="seemore">ดูทั้งหมด >></a>
+    <a href="/novels/type/เรื่องสั้น" class="seemore">ดูทั้งหมด >></a>
     <h4>Top Chart เรื่องสั้น</h4>
     <hr>
     <div class="row row-cols-1 row-cols-2">

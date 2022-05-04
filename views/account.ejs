@@ -8,8 +8,7 @@
             </div>
             <div class="col bcinfo">
                 <div class="info">
-                    <h5>DisplayName</h5>
-                    <div><%= user.name %></div>
+                    <h5><%= user.name %></h5>
                     <div><%= user.email %></div>
                     <div class="row center">
                         <div class="col">
@@ -35,7 +34,6 @@
 <div class="container w-75">
     <br>
     <div class="">
-        <a href="editprofile.html" type="button" class="bi bi-pencil-fill editpro"> Edit Profile</a>
         <div>งานเขียนทั้งหมด 4 เรื่อง</div>
     </div>
 </div>
@@ -52,7 +50,7 @@
                 </div>
                 <div class="col wridet">
                     <div class="nameti"><%= novel.title %></div>
-                    <a href="#"><%= novel.category %></a>
+                    <a href="/novels/category/<%= novel.category %>"><%= novel.category %></a>
                     <div class="ob"><%= novel.description.substring(0,80) +"..." %></div>
                     <hr>
                     <div class="chap">5 ตอน</div>

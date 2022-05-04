@@ -5,8 +5,14 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const Novel = require("../models/novel");
 
 // Index Page
-router.get('/', (req, res) => {
-  res.render('index')
+router.get('/', async (req, res) => {
+    try {
+      const novels = await Novel.find().exec()
+      res.render("index", {novels});
+    } catch (err) {
+      console.log(err);
+      res.send("you broke it... /index");
+    }
 });
 
 // Account Page

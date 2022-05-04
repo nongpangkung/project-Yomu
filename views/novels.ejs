@@ -44,7 +44,7 @@
                     </div>
                     <div class="col wridet">
                         <a href="/novels/<%= novel._id %>"><div class="nameti"><%= novel.title %></div></a>
-                        <a href="#"><%= novel.category %></a>
+                        <a href="/novels/category/<%= novel.category %>"><%= novel.category %></a>
                         <div class="ob-novels"><%= novel.description.substring(0,80) +"..." %></div>
                         <hr>
                         <div class="chap">5 ตอน</div>
@@ -247,5 +247,120 @@ footer {
     text-align: center;
     color: #b3b3b3;
     font-size: medium;
+}
+/* button login */
+.login {
+    text-decoration: none;
+    color: grey;
+    border: 2px solid pink;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.login:hover {
+    color: white;
+    background-color: pink;
+}
+
+/* img login */
+.img-login {
+    width: 325px;
+}
+
+/* modal */
+.text-center {
+    text-align: center;
+}
+
+.close {
+    float: right;
+    margin: 10px 10px 0 0;
+}
+
+.topic {
+    font-size: x-large;
+}
+
+.facebook {
+    background-color: #3b5998;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 10px 0;
+}
+
+.line {
+    background-color: #00B900;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px 33.5px;
+}
+
+.apple {
+    background-color: black;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px 30px;
+}
+
+.or-center {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.input {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 17px;
+    border: 2px solid grey;
+    outline: none;
+}
+
+.input:focus {
+    border: 2px solid pink;
+}
+
+.clearlink,
+.clearlink:hover {
+    text-decoration: none;
+    color: pink;
+}
+
+.submit-modal {
+    background-color: pink;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px 50px;
+    margin: 15px 0;
+}
+
+.regis {
+    background-color: white;
+    border: 2px solid pink;
+    border-radius: 15px;
+    padding: 3px 10px;
+    margin: 10px 0;
+}
+
+.borderright {
+    border-right: 2px solid pink;
+}
+
+.in-regis {
+    width: 310px;
+    margin: 5px 25px;
+}
+
+.text {
+    margin: 5px 0 0 30px;
+}
+
+.check {
+    margin: 15px 0;
 }
 </style>
