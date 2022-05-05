@@ -3,11 +3,11 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('cookie-session');
-const expressLayouts = require('express-ejs-layouts');
+//const expressLayouts = require('express-ejs-layouts');
 
 // Passport Config
 require('./config/passport')(passport);
@@ -45,8 +45,12 @@ seed();*/
 
 
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + '/public'));
-app.use(morgan('tiny'));
+app.use(express.static("public"));
+app.use(express.json({
+  type: ["application/json","text/plain"]
+}));
+
+//app.use(morgan('tiny'));
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));

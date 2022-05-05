@@ -48,11 +48,16 @@
                     </div>
                     <% } else { %>
                     <div class="butt">
-                        <button class="bi bi-heart heart" ></button>
                         <button class="bi bi-plus-lg add"> ชั้นหนังสือ</button>
                         <button class="bi bi-eye-fill start"> เริ่มอ่าน</button>
                     </div>
                     <% } %>
+                    <% if(user) { %>
+                        <div class="butt">
+                        <button id="upvote_btn" class="bi bi-heart heart" >+</button>
+                        <button id="downvote_btn" class="bi bi-heart heart" >-</button>
+                        </div>
+                    <% }%>
                 </div>
             </div>
         </div>
@@ -186,5 +191,45 @@
             </div>
             <% }) %>
     </div>
-    
+
+    <script>
+        const upvoteBtn = document.getElementById("upvote_btn")
+        const downvoteBtn = document.getElementById("downvote_btn")
+        
+        const sendVote = async (voteType) => {
+            const options = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            if(voteType === "up") {
+                options.body = JSON.stringify({vote: "up"})
+            } else if (voteType === "down") {
+                options.body = JSON.stringify({vote: "down"})
+            } else {
+                throw "vote fail"
+            }
+
+            await fetch("/novels/vote", options)
+            .then(data => {
+                return data.json()
+            })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+
+        upvoteBtn.addEventListener("click", async function() {
+            sendVote("up")
+        })
+
+        downvoteBtn.addEventListener("click", async function() {
+            sendVote("down")
+        })
+
+    </script>
 <%- include('partials/footer') %>

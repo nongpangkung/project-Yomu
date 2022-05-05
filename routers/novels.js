@@ -109,6 +109,14 @@ router.get("/mynovels", ensureAuthenticated , async (req, res) => {
     }
 })
 
+//Vote
+router.post("/vote", ensureAuthenticated ,(req, res) => {
+    console.log(req.body);
+    res.json({
+        message: "Voted!"
+    })
+})
+
 router.get("/addnovel",ensureAuthenticated, (req, res) => {
     res.render("add_novel");
 })
