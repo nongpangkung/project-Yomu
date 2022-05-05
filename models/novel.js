@@ -9,7 +9,6 @@ const novelSchema = new mongoose.Schema({
     username: String,
     date: Date,
     category: String,
-    tag: String,
     publisher: String,
     intro: String,
     rate: String,

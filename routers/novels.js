@@ -25,7 +25,6 @@ router.post("/", ensureAuthenticated , async (req, res) => {
         description: req.body.description,
         image: req.body.image,
         category: req.body.category,
-        tag: req.body.tag,
         intro: req.body.intro,
         rate: req.body.rate,
         publisher: req.body.publisher,
@@ -98,7 +97,7 @@ router.get("/type/:typeName", async (req, res) => {
 })
 
 //Show
-router.get("/mynovel", ensureAuthenticated , async (req, res) => {
+router.get("/mynovels", ensureAuthenticated , async (req, res) => {
     try {
         const novel = await Novel.find().exec();
         res.render("mynovel", {novel});
@@ -159,7 +158,7 @@ router.delete("/:id", checkNovelOwner ,async (req, res) => {
     try {
         const deletedNovel = await Novel.findByIdAndDelete(req.params.id).exec();
         console.log("Deleted: ", deletedNovel);
-        res.redirect("/novels/mynovel");
+        res.redirect("/novels/mynovels");
     } catch (err) {
         console.log(err);
         res.send("you broke it... /novels/:id DELETE");

@@ -72,8 +72,6 @@
 
         <!-- tag ปุ่ม -->
         <div class="container w-75 cont">
-            <span>แท๊ก (Tag)</span>
-            <input name="tag" type="text" value="<%= novel.tag %>" class="tag">
             <div class="d-grid gap-2 d-md-block btnn">
                 <button class="save" type="submit">บันทึก</button>
                 <a href="writing.html" type="button" class="cancel">ยกเลิก</a>
@@ -91,6 +89,34 @@
     </script>
 
     <style>
+        /* notification */
+.noti {
+    color: grey;
+    font-size: x-large;
+}
+
+.noti:hover {
+    color: pink;
+}
+
+.notifi {
+    margin: 0 20px;
+}
+
+/* username */
+.username {
+    text-decoration: none;
+    color: grey;
+}
+
+.username:hover {
+    color: pink;
+}
+
+/* user dropdown */
+.dropdown-item:focus {
+    background-color: pink;
+}
         @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
 
         * {
