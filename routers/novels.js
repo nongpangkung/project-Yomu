@@ -34,7 +34,9 @@ router.post("/", ensureAuthenticated , async (req, res) => {
         owner: {
             id: req.user._id,
             name: req.user.name
-        }
+        },
+        upvote: [req.user.name],
+        downvotes: []
     }
 
     try {

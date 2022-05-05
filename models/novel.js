@@ -21,7 +21,9 @@ const novelSchema = new mongoose.Schema({
             ref: "User"
         },
         name: String
-    }
+    },
+    upvote: [String],
+    downvotes: [String]
 });
 
 novelSchema.index({
