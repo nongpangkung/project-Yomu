@@ -72,7 +72,6 @@ router.get("/category/:categoryName", async (req, res) => {
               return "This!, " + this.topicname
             }
         }
-        
         var cate = new Category(req.params.categoryName);
 
         const novels = await Novel.find({category: req.params.categoryName}).exec()
