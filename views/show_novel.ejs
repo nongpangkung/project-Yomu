@@ -193,6 +193,7 @@
     </div>
 
     <script>
+        var novelId = "<%- novel._id %>"
         const upvoteBtn = document.getElementById("upvote_btn")
         const downvoteBtn = document.getElementById("downvote_btn")
         
@@ -204,9 +205,15 @@
                 }
             }
             if(voteType === "up") {
-                options.body = JSON.stringify({vote: "up"})
+                options.body = JSON.stringify({
+                    voteType: "up",
+                    novelId
+                })
             } else if (voteType === "down") {
-                options.body = JSON.stringify({vote: "down"})
+                options.body = JSON.stringify({
+                    voteType: "down",
+                    novelId
+                })
             } else {
                 throw "vote fail"
             }

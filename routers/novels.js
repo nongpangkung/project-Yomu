@@ -110,11 +110,12 @@ router.get("/mynovels", ensureAuthenticated , async (req, res) => {
 })
 
 //Vote
-router.post("/vote", ensureAuthenticated ,(req, res) => {
-    console.log(req.body);
-    res.json({
-        message: "Voted!"
-    })
+router.post("/vote", ensureAuthenticated ,async (req, res) => {
+    console.log("Request body:",req.body)
+
+    const novel = await Novel.findById(req.body.novelId)
+    console.log(novel)
+    res.json(novel);
 })
 
 router.get("/addnovel",ensureAuthenticated, (req, res) => {
