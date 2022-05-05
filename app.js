@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('cookie-session');
+const expressLayouts = require('express-ejs-layouts');
 
 // Passport Config
 require('./config/passport')(passport);
@@ -41,6 +42,7 @@ app.listen(process.env.PORT || 3000)
 
 /*const seed = require('./utils/seed');
 seed();*/
+
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
