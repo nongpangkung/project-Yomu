@@ -2,7 +2,11 @@
     <!-- หัวข้อ และ เมนู -->
     <div class="container w-50">
         <div class="bc">
-            <h3><%= categoryname %><%= typename %></h3>
+            <% if(!(categoryname === undefined)) { %>
+               <h3><%= categoryname %></h3>
+            <% } else if(!(typename === undefined)) { %>
+               <h3><%= typename %></h3>
+            <% } %>
             <div class="manu">
                 <span>
                     <a href="#">ใหม่มาแรง</a>

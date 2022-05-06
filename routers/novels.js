@@ -70,14 +70,23 @@ router.get("/category/:categoryName", async (req, res) => {
         function Category(topicname) {
             this.topicname = topicname
             this.show = function () {
-              return "This!, " + this.topicname
+              return "" + this.topicname
             }
         }
+
+        function Type(typename) {
+            this.typename = typename
+            this.showty = function () {
+              return "" + this.typename
+            }
+        }
+
+        var type = new Type(req.params.typeName)
         var cate = new Category(req.params.categoryName);
 
         const novels = await Novel.find({category: req.params.categoryName}).exec()
         const categoryname = cate.show()
-        const typename =  req.params.typeName;
+        const typename =  type.showty()
         res.render("novels",{novels,categoryname,typename})
     } catch (err) {
         console.log(err);
@@ -111,11 +120,57 @@ router.get("/mynovels", ensureAuthenticated , async (req, res) => {
 
 //Vote
 router.post("/vote", ensureAuthenticated ,async (req, res) => {
-    console.log("Request body:",req.body)
 
     const novel = await Novel.findById(req.body.novelId)
-    console.log(novel)
-    res.json(novel);
+    const alreadyUpvoted = novel.upvote.indexOf(req.user.name)
+    const alreadyDownvoted = novel.downvotes.indexOf(req.user.name)
+    
+    let response = {}
+    
+    if (alreadyDownvoted === -1 && alreadyDownvoted === -1) {
+        if(req.body.voteType === 'up') {
+            novel.upvote.push(req.user.name)
+            novel.save()
+            response.message = "Upvote tallied!"
+        } else if (req.body.voteType === 'down' ) {
+            novel.downvotes.push(req.user.name)
+            novel.save()
+            response.message = "Downvote tallied!"
+        } else {
+            response.message = "Error 1"
+        }
+    } else if(alreadyUpvoted >= 0) {
+        if (req.body.voteType === 'up') {
+            novel.upvote.splice(alreadyUpvoted, 1)
+            novel.save()
+            response.message = "Upvote removed"
+        } else if (req.body.voteType === 'down') {
+            novel.upvote.splice(alreadyUpvoted, 1)
+            novel.downvotes.push(req.user.name)
+            novel.save()
+            response.message = "Changed to downvote"
+        } else {
+            response.message = "Error 2"
+        }
+    } else if(alreadyDownvoted >= 0) {
+        if (req.body.voteType === 'up') {
+            novel.downvotes.splice(alreadyDownvoted, 1)
+            novel.upvote.push(req.user.name)
+            novel.save()
+            response.message = "Change to upvote"
+        } else if (req.body.voteType === 'down') {
+            novel.downvotes.splice(alreadyDownvoted, 1)
+            novel.save()
+            response.message = "Removed downvote"
+        } else {
+            response.message = "Error 3"
+        }
+
+    } else {
+        response.message = "Error 4"
+    }
+
+    res.json(response);
 })
 
 router.get("/addnovel",ensureAuthenticated, (req, res) => {
