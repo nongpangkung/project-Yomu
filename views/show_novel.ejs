@@ -1,8 +1,8 @@
 <%- include('partials/header') %>
     <!-- เส้นทาง -->
     <div class="container">
-        <a href="../index.html" class="bi bi-house-fill direc"> ></a>
-        <a href="../index-category.html" class="direc">ประเภท ๐ <%= novel.category%> ></a>
+        <a href="/" class="bi bi-house-fill direc"> ></a>
+        <a href="/novels/category/<%= novel.category%>" class="direc">ประเภท ๐ <%= novel.category%> ></a>
         <span>
             <%= novel.title %>
         </span>
@@ -35,7 +35,7 @@
                         <%= novel.description %>
                     </div>
                     <div>
-                        <div class="bi bi-heart-fill fav"> 154</div>
+                        <span id="score" class="bi bi-heart-fill fav"><%= novel.upvote.length - novel.downvotes.length %></span>
                         <div class="bi bi-eye-fill se"> 29k</div>
                         <div class="bi bi-chat-dots-fill com"> 146</div>
                     </div>
@@ -196,6 +196,7 @@
         var novelId = "<%- novel._id %>"
         const upvoteBtn = document.getElementById("upvote_btn")
         const downvoteBtn = document.getElementById("downvote_btn")
+        const score = document.getElementById("score")
         
         const sendVote = async (voteType) => {
             const options = {
@@ -224,10 +225,15 @@
             })
             .then(res => {
                 console.log(res)
+                handleVote(res.score, res.code)
             })
             .catch(err => {
                 console.log(err)
             })
+        }
+
+        const handleVote = (newScore, code) => {
+            score.innerText = newScore
         }
 
         upvoteBtn.addEventListener("click", async function() {

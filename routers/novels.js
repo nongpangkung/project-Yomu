@@ -8,9 +8,24 @@ const checkNovelOwner = require('../utils/checkNovelOwner')
 
 router.get("/", async (req, res) => {
     try {
-        const novels = await Novel.find().exec();
-        const categoryname =  req.params.categoryName;
-        const typename =  req.params.typeName;
+        function Category(topicname) {
+            this.topicname = topicname
+            this.show = function () {
+              return "" + this.topicname
+            }
+        }
+
+        function Type(typename) {
+            this.typename = typename
+            this.showty = function () {
+              return "" + this.typename
+            }
+        }
+
+        var type = new Type(req.params.typeName)
+        var cate = new Category(req.params.categoryName);
+        const categoryname = cate.show()
+        const typename =  type.showty()
         res.render("novels", {novels,categoryname,typename});
     } catch (err) {
         console.log(err);
@@ -110,8 +125,26 @@ router.get("/type/:typeName", async (req, res) => {
 //Show
 router.get("/mynovels", ensureAuthenticated , async (req, res) => {
     try {
+        function Category(topicname) {
+            this.topicname = topicname
+            this.show = function () {
+              return "" + this.topicname
+            }
+        }
+
+        function Type(typename) {
+            this.typename = typename
+            this.showty = function () {
+              return "" + this.typename
+            }
+        }
+
+        var type = new Type(req.params.typeName)
+        var cate = new Category(req.params.categoryName);
+        const categoryname = cate.show()
+        const typename =  type.showty()
         const novel = await Novel.find().exec();
-        res.render("mynovel", {novel});
+        res.render("mynovel", {novel,categoryname,typename});
     } catch (err) {
         console.log(err);
         res.send("you broke it... /novels/mynovel POST");
@@ -131,44 +164,46 @@ router.post("/vote", ensureAuthenticated ,async (req, res) => {
         if(req.body.voteType === 'up') {
             novel.upvote.push(req.user.name)
             novel.save()
-            response.message = "Upvote tallied!"
+            response = {message : "Upvote tallied!", code: 1}
         } else if (req.body.voteType === 'down' ) {
             novel.downvotes.push(req.user.name)
             novel.save()
-            response.message = "Downvote tallied!"
+            response = {message : "Downvote tallied!", code: -1}
         } else {
-            response.message = "Error 1"
+            response = {message : "Error 1", code: "err"}
         }
     } else if(alreadyUpvoted >= 0) {
         if (req.body.voteType === 'up') {
             novel.upvote.splice(alreadyUpvoted, 1)
             novel.save()
-            response.message = "Upvote removed"
+            response = {message : "Upvote removed", code: 0}
         } else if (req.body.voteType === 'down') {
             novel.upvote.splice(alreadyUpvoted, 1)
             novel.downvotes.push(req.user.name)
             novel.save()
-            response.message = "Changed to downvote"
+            response ={message : "Changed to downvote", code: -1}
         } else {
-            response.message = "Error 2"
+            response = {message :"Error 2",code: "err"}
         }
     } else if(alreadyDownvoted >= 0) {
         if (req.body.voteType === 'up') {
             novel.downvotes.splice(alreadyDownvoted, 1)
             novel.upvote.push(req.user.name)
             novel.save()
-            response.message = "Change to upvote"
+            response = {message :"Change to upvote",code: 1}
         } else if (req.body.voteType === 'down') {
             novel.downvotes.splice(alreadyDownvoted, 1)
             novel.save()
-            response.message = "Removed downvote"
+            response = {message :"Removed downvote", code: 0}
         } else {
-            response.message = "Error 3"
+            response = {message :"Error 3", code: "err"}
         }
 
     } else {
-        response.message = "Error 4"
+        response = {message :"Error 4", code: "err"}
     }
+
+    response.score = novel.upvote.length - novel.downvotes.length;
 
     res.json(response);
 })
@@ -179,10 +214,28 @@ router.get("/addnovel",ensureAuthenticated, (req, res) => {
 
 router.get("/:id", async (req, res) => {
     try {
+        function Category(topicname) {
+            this.topicname = topicname
+            this.show = function () {
+              return "" + this.topicname
+            }
+        }
+
+        function Type(typename) {
+            this.typename = typename
+            this.showty = function () {
+              return "" + this.typename
+            }
+        }
+
+        var type = new Type(req.params.typeName)
+        var cate = new Category(req.params.categoryName);
+        const categoryname = cate.show()
+        const typename =  type.showty()
         const novel = await Novel.findById(req.params.id).exec();
         const chapters = await Chapter.find({novelId: req.params.id});
         const comments = await Comment.find({novelId: req.params.id});
-        res.render("show_novel",{novel,chapters,comments})
+        res.render("show_novel",{novel,chapters,comments,categoryname,typename})
     } catch (err) {
         console.log(err);
         res.send("you broke it... /novels/:id");
